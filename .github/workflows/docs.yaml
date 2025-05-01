@@ -51,12 +51,10 @@ jobs:
     - name: Install (upgrade) latex dependencies
       run: |
         sudo apt-get update
-        # Install the full version
-        # sudo apt-get install texlive-full -y
-        # or only your required latex packages
         sudo apt-get install texlive-latex-base
         sudo apt-get install texlive-fonts-recommended texlive-fonts-extra
         sudo apt-get install texlive-latex-extra
+        sudo apt-get install latexmk
 
     - name: Build documentation
       run: |
