@@ -13,6 +13,16 @@ on:
     types: [issues, opened, reopened, synchronize]
     paths:
       - docs/**
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build documentation for'
+        required: false
+        default: 'develop'
+      commit:
+        description: 'Commit to build documentation for'
+        required: false
+        default: 'HEAD'
 
 jobs:
 
