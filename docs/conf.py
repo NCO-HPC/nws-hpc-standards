@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath("."))
 # General information about the project.
 project = "ee-docs"
 year = datetime.datetime.now().year
-copyright = "2023-{}, NOAA/NWS/NCEP/EMC".format(year)
+copyright = "2009-{}, NOAA/NWS/NCEP".format(year)
 author = "NOAA/NWS/NCEP"
 version = "11.0.0"
 release = "11.0.0"
