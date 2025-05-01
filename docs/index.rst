@@ -11,6 +11,8 @@ Version 11.0.0 (January 19, 2022)
    This document outlines policies and technical standards for implementing operational code
    or numerical models in the NCEP production suite running on WCOSS.
 
+.. include:: standards.rst
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
