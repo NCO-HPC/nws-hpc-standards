@@ -44,14 +44,9 @@ jobs:
         # Install the full version
         # sudo apt-get install texlive-full -y
         # or only your required latex packages
-        sudo apt-get install -y
-          texlive-base \
-          texlive-latex-base \
-          texlive-latex-recommended \
-          texlive-latex-extra \
-          texlive-fonts-recommended \
-          latexmk \
-          lmodern
+        sudo apt-get install texlive-latex-base
+        sudo apt-get install texlive-fonts-recommended texlive-fonts-extra
+        sudo apt-get install texlive-latex-extra
 
     - name: Build documentation
       run: |
