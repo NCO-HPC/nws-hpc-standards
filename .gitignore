@@ -1,1 +1,15 @@
+# Editor files
+.vscode/
+*.sw[a-p]
+*~
+.DS_Store
+._*
+
+# compiled files
+__pycache__
+*.pyc
 docs/_build
+
+# virtual envs for building locally
+.venv/
+venv/
