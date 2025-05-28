@@ -1,1 +1,10 @@
 # This file is to ensure that development gets reviewed by the appropriate SME
+
+# default owners
+@StevenEarle-NCO
+
+# specific directory owners
+docs/ @WeiWei-NCO
+
+# specific file owners
+docs/*.rst @StevenEarle-NCO @JustinCooke-NCO
