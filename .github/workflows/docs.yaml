@@ -11,8 +11,8 @@ on:
       - docs/**
   pull_request_target:
     types: [issues, opened, reopened, synchronize]
-    paths:
-      - docs/**
+#    paths:
+#      - docs/**
   workflow_dispatch:
     inputs:
       branch:
