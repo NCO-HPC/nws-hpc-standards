@@ -36,7 +36,7 @@ body:
       label: What are potential impacts by changing this standard?
       description: Describe who or what might be affected and how.
 
-  - type: checkboxes
+  - type: textarea
     id: enforcement
     attributes:
       label: How will this standard be enforced?
