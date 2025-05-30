@@ -1,0 +1,57 @@
+name: Modify Standard
+description: Propose modifying an existing standard
+title: "[Standard Update]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Proposal to Modify an Existing Standard
+        Please complete the following to propose a change to a current standard.
+
+  - type: textarea
+    id: limitations
+    attributes:
+      label: What are the limitations of the current standard?
+      description: Describe any issues, gaps, or outdated elements in the current standard.
+      placeholder: e.g. The current rule doesn't account for modern frameworks or tools.
+
+  - type: textarea
+    id: proposed_changes
+    attributes:
+      label: What changes are being proposed to the current standard?
+      description: Clearly define the proposed changes.
+      placeholder: e.g. Recommend updating the rule to require ESLint with specific config.
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: How do these changes improve the current standard?
+      description: Explain how these changes enhance clarity, consistency, maintainability, etc.
+      placeholder: e.g. Reduces confusion and aligns with how most teams already work.
+
+  - type: textarea
+    id: impacts
+    attributes:
+      label: What are potential impacts by changing this standard?
+      description: Describe who or what might be affected and how.
+      placeholder: e.g. Will require updating CI scripts and developer onboarding docs.
+
+  - type: checkboxes
+    id: enforcement
+    attributes:
+      label: How will this standard be enforced?
+      description: Select all that apply.
+      options:
+        - label: Automated tool (e.g. linter or formatter)
+        - label: Manual code review
+        - label: Developer education or documentation
+        - label: Other (please explain in the comment)
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional context or notes (optional)
+      description: Add any relevant references, links, or related discussions.
