@@ -1,0 +1,35 @@
+name: New Standard
+description: Propose a new standard for implementing operational code or numerical models in the NCEP production suite
+title: "[New Standard]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Proposal for a New Standard
+        Please fill out the following details to propose a new coding or operational standard.
+
+  - type: textarea
+    id: proposed_standard
+    attributes:
+      label: What new standard is being proposed?
+      description: Describe the specific rule, guideline, or practice you're suggesting. Be as clear and concise as possible.
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Why is the new standard necessary?
+      description: Explain the problem this standard addresses, what it improves (e.g. performance, operational efficiency, maintainability), or why it’s needed now.
+
+  - type: textarea
+    id: enforcement
+    attributes:
+      label: How will the new standard be enforced?
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact of this standard?
+      description: Who will be affected? What effort is required to adopt it? Will existing code need to be updated? Are there potential downsides or trade-offs?

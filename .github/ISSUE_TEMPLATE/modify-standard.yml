@@ -1,0 +1,48 @@
+name: Modify Standard
+description: Propose modifying an existing standard
+title: "[Standard Update]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Proposal to Modify an Existing Standard
+        Please complete the following to propose a change to a current standard.
+
+  - type: textarea
+    id: limitations
+    attributes:
+      label: What are the limitations of the current standard?
+      description: Describe any issues, gaps, or outdated elements in the current standard.
+  
+
+  - type: textarea
+    id: proposed_changes
+    attributes:
+      label: What changes are being proposed to the current standard?
+      description: Clearly define the proposed changes.
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: How do these changes improve the current standard?
+      description: Explain how these changes enhance clarity, consistency, maintainability, etc.
+
+  - type: textarea
+    id: impacts
+    attributes:
+      label: What are potential impacts by changing this standard?
+      description: Describe who or what might be affected and how.
+
+  - type: textarea
+    id: enforcement
+    attributes:
+      label: How will this standard be enforced?
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional context or notes (optional)
+      description: Add any relevant references, links, or related discussions.
