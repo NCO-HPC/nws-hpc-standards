@@ -2,7 +2,7 @@ name: New Standard
 description: Propose a new standard for implementing operational code or numerical models in the NCEP production suite
 title: "[New Standard]: "
 labels: []
-assignees: []
+assignees: StevenEarle-NCO, JustinCooke-NCO 
 
 body:
   - type: markdown
