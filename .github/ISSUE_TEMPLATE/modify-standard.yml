@@ -2,7 +2,7 @@ name: Modify Standard
 description: Propose modifying an existing standard
 title: "[Standard Update]: "
 labels: []
-assignees: []
+assignees: StevenEarle-NCO, JustinCooke-NCO 
 
 body:
   - type: markdown
