@@ -194,8 +194,9 @@ See `Appendix A: Workflow Examples`_ for examples of these utilities in use.
   If ``$err`` is non-zero, the job is aborted.
   ``err_exit`` will write an error message with the time of the error, and immediately abort the job in PBS Pro.
   It accepts an error string as input to which it will prepend “FATAL ERROR.”
-  Python “FutureWarning” messages, which indicate that a job may fail in the future due to incompatible Python packages, are acceptable messages.
-  Developers should attempt to resolve “FutureWarning” messages, when possible, to prevent jobs from failing in future operational package upgrades.  
+  Python “FutureWarning” messages indicate that a specific feature, function, or syntax that is currently being used will be changed or removed in a future version of Python or in a future version of a Python library. 
+  Python “FutureWarning” messages are acceptable messages in operations and should not be suppressed.
+  Developers should make an effort to resolve “FutureWarning” messages, when possible, in order to prevent production jobs from failing in the future.  
 
 ``cpreq``
   ``cpreq`` is used to copy files that are essential to an application.
