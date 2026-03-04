@@ -70,13 +70,13 @@ jobs:
         path: docs/_build/latex/ee-docs.pdf
         if-no-files-found: ignore
 
-    - name: Upload warnings (on failure)
-      uses: actions/upload-artifact@v4
-      if: failure()
-      with:
-        name: ee-docs.warnings.log
-        path: docs/_build/warnings.log
-        if-no-files-found: ignore
+#    - name: Upload warnings (on failure)
+#      uses: actions/upload-artifact@v4
+#      if: failure()
+#      with:
+#        name: ee-docs.warnings.log
+#        path: docs/_build/warnings.log
+#        if-no-files-found: ignore
 
     - name: Comment ReadDocs Link in PR
       if: ${{ github.event_name == 'pull_request' }}
@@ -85,7 +85,7 @@ jobs:
         script: |
           const message = `
           Link to ReadTheDocs sample build for this PR can be found at:
-          https://eedocs.org.readthedocs.build/en/${{ github.event.pull_request.number }}
+          https://nws-hpc-standards--${{ github.event.pull_request.number }}.org.readthedocs.build/en/${{ github.event.pull_request.number }}
           `
           github.rest.issues.createComment({
            issue_number: context.issue.number,
