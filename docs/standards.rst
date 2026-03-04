@@ -1050,7 +1050,7 @@ These scripts can be combined into a single script using arguments.
 
 **Example 12: modulefiles/build_pmb.module (to be loaded prior to compilation)**
 
-.. code-block:: lua
+.. code-block:: bash
 
    --%Module####################################################
    --                                                 First.Last@noaa.gov
