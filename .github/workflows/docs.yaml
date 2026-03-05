@@ -88,7 +88,7 @@ jobs:
           https://nws-hpc-standards--${{ github.event.pull_request.number }}.org.readthedocs.build/en/${{ github.event.pull_request.number }}
           `
           github.rest.issues.createComment({
-           issue_number: context.issue.number,
+           issue_number: context.pull_request.number,
            owner: context.repo.owner,
            repo: context.repo.repo,
            body: message
