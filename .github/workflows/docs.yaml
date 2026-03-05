@@ -9,7 +9,11 @@ on:
       - release/*
     paths:
       - docs/**
-  pull_request_target:
+#  pull_request_target:
+#    types: [issues, opened, reopened, synchronize]
+#    paths:
+#      - docs/**
+  pull_request:
     types: [issues, opened, reopened, synchronize]
     paths:
       - docs/**
@@ -79,7 +83,7 @@ jobs:
 #        if-no-files-found: ignore
 #
     - name: Comment ReadDocs Link in PR
-#      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request' }}
       uses: actions/github-script@v7
       with:
         script: |

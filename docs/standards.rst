@@ -102,7 +102,7 @@ Variables that are not used in a given job need not be defined (keep the ``J-job
    "``model_ver``","version number of package in three digits; where ``package`` is the model's directory name","job card"
    "``module_ver``","Version of module ``module`` which is used at runtime by model ``model``","version file"
    "``extmodel_ver``","version of external model dependencies; specified with two digit version number","version file"
-   "``KEEPDATA``","Boolean [#]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
+   "``KEEPDATA``","Boolean [#bool]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
    "``MAILTO``","List of email addresses to send email to","job card"
    "``MAILCC``","List of email addresses to cc on email","job card"
 
