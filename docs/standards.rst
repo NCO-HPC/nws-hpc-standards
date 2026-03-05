@@ -96,7 +96,7 @@ Variables that are not used in a given job need not be defined (keep the ``J-job
    "``DBNROOT``","Root directory for the data-alerting utilities","job card"
    "``SENDECF``","Boolean [#bool]_ variable used to control ecflow_client child commands","job card"
    "``SENDDBN``","Boolean [#bool]_ variable used to control sending products off WCOSS2","job card"
-   "``SENDDBN_NTC``","Boolean [#]_ variable used to control sending products with WMO headers off WCOSS2","job card"
+   "``SENDDBN_NTC``","Boolean [#bool]_ variable used to control sending products with WMO headers off WCOSS2","job card"
    "``SENDCOM``","Boolean [#]_ variable to control data copies to ``$COMOUT``","job card"
    "``SENDWEB``","Boolean [#]_ variable used to control sending products to a web server, often ncorzdm","job card"
    "``model_ver``","version number of package in three digits; where ``package`` is the model's directory name","job card"
