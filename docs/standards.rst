@@ -661,11 +661,33 @@ Example call:
 Code Delivery and Vertical Structure
 ====================================
 
-All components of an application to be run in the NCO production environment must be delivered to IDSB's Senior Production Analysts (SPA) via subversion, git or any other version control system that WCOSS has access to.
-When modifying an application that is already in production, always begin with the most recent production version at ``https://svnwcoss.ncep.noaa.gov/MODEL/tags/``.
+A. Code Delivery
+----------------
+The following requirements apply to production code deliveries to NCO:
 
+.. _req-release-branch-name:
 
-A. Source Code Compilation (C or Fortran)
+* Code must exist on a release branch.
+
+  * Release branch names will follow the naming convention: ``release/vX.Y.Z``
+
+.. _req-release-tag-name:
+
+* The release branch must have a corresponding release tag.
+
+  *  Release tags will follow the naming convention: ``<model_name>.vX.Y.Z``
+
+.. _req-release-obtain:
+
+* NCO SPA team members must be able to acquire your code with the following git commands:
+
+``$ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z``
+
+``$ cd <model_name>.vX.Y.Z``
+
+``$ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z``
+
+B. Source Code Compilation (C or Fortran)
 -----------------------------------------
 
 The directory structure, compilation scripts, makefiles, and documentation for building must be understandable to someone unfamiliar with the specifics of your model.
@@ -695,7 +717,7 @@ Do not deliver pre-built executables or libraries to IDSB. It is the SPA's respo
 * Clear, concise instructions (see Example 10 in `Appendix A: Workflow Examples`_) will reduce confusion and errors if it becomes necessary to rebuild the executable quickly.
 
 
-B. Directory Structures
+C. Directory Structures
 -----------------------
 
 All components of an application to be implemented into the production environment are required to be in vertical structure, where, with the exception of system or standard production libraries and input data, all of the files required to completely build and run the jobs are contained in an application-specific package.
@@ -776,7 +798,7 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-C. Unresolved Bugs
+D. Unresolved Bugs
 ------------------
 
 Before handing off code to NCO, all Bugzilla entries must be addressed.
