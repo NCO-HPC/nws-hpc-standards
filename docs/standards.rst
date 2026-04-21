@@ -661,11 +661,31 @@ Example call:
 Code Delivery and Vertical Structure
 ====================================
 
-All components of an application to be run in the NCO production environment must be delivered to IDSB's Senior Production Analysts (SPA) via subversion, git or any other version control system that WCOSS has access to.
-When modifying an application that is already in production, always begin with the most recent production version at ``https://svnwcoss.ncep.noaa.gov/MODEL/tags/``.
+A. Code Delivery
+----------------
+All components of an application to be run in the NCO production environment must be delivered to NCO's Senior Production Analysts (SPA) via git.
 
+When modifying an application that is already in production, always begin with the most recent production version that you delivered to NCO via a release branch and corresponding tag.
 
-A. Source Code Compilation (C or Fortran)
+**Requirement**: code delivered to NCO must exist on a release branch.
+
+When you are ready to deliver production-ready code to NCO, create a branch ``release/vX.Y.Z``. Merge all changes intended for production into this new branch.
+
+**Requirement**: code delivered to NCO must have a corresponding release tag.
+
+After you have created a release branch ``release/vX.Y.Z`` and merged all changes intended for production into this branch, create a corresponding tag ``<model_name>.vX.Y.Z``.
+
+**Requirement**: deliver code to NCO via git by providing a release branch and corresponding tag.
+
+NCO SPA team members must be able to acquire your code with the following git commands:
+
+``$ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z``
+
+``$ cd <model_name>.vX.Y.Z``
+
+``$ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z``
+
+B. Source Code Compilation (C or Fortran)
 -----------------------------------------
 
 The directory structure, compilation scripts, makefiles, and documentation for building must be understandable to someone unfamiliar with the specifics of your model.
@@ -695,7 +715,7 @@ Do not deliver pre-built executables or libraries to IDSB. It is the SPA's respo
 * Clear, concise instructions (see Example 10 in `Appendix A: Workflow Examples`_) will reduce confusion and errors if it becomes necessary to rebuild the executable quickly.
 
 
-B. Directory Structures
+C. Directory Structures
 -----------------------
 
 All components of an application to be implemented into the production environment are required to be in vertical structure, where, with the exception of system or standard production libraries and input data, all of the files required to completely build and run the jobs are contained in an application-specific package.
@@ -776,7 +796,7 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-C. Unresolved Bugs
+D. Unresolved Bugs
 ------------------
 
 Before handing off code to NCO, all Bugzilla entries must be addressed.
