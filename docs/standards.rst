@@ -663,7 +663,9 @@ Code Delivery and Vertical Structure
 
 A. Code Delivery
 ----------------
-The following requirements apply to production code deliveries to NCO:
+
+Production code is to be delivered via git with the following requirements on naming conventions and 
+procurement:
 
 .. _req-release-branch-name:
 
@@ -681,11 +683,11 @@ The release branch must have a corresponding release tag.
 
 NCO SPA team members must be able to acquire code deliveries with the following git commands:
 
-.. codeblock:: bash
+.. code-block:: bash
 
-$ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z
-$ cd <model_name>.vX.Y.Z
-$ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z
+   $ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z
+   $ cd <model_name>.vX.Y.Z
+   $ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z
 
 B. Source Code Compilation (C or Fortran)
 -----------------------------------------
@@ -1241,8 +1243,8 @@ Itemized List of Standards
 
 * :ref:`code-delivery-structure`
 
-  * :ref:`req-release-branch-name`
+  * :ref:`Release branch names <req-release-branch-name>`
 
-  * :ref:`req-release-tag-name`
+  * :ref:`Release tag names <req-release-tag-name>`
 
-  * :ref:`req-release-procurement`
+  * :ref:`Code delivery procurement <req-release-procurement>`
