@@ -667,19 +667,22 @@ The following requirements apply to production code deliveries to NCO:
 
 .. _req-release-branch-name:
 
-* Code must exist on a release branch. 
+Code must exist on a release branch. 
 
-  * Release branch names will follow the naming convention: ``release/vX.Y.Z``
+* Release branch names will follow the naming convention: ``release/vX.Y.Z``
 
 .. _req-release-tag-name:
 
-* The release branch must have a corresponding release tag.
+The release branch must have a corresponding release tag.
 
-  *  Release tags will follow the naming convention: ``<model_name>.vX.Y.Z``
+*  Release tags will follow the naming convention: ``<model_name>.vX.Y.Z``
 
 .. _req-release-procurement:
 
-* NCO SPA team members must be able to acquire code deliveries with the following git commands::
+NCO SPA team members must be able to acquire code deliveries with the following git commands:
+
+.. codeblock:: bash
+
 $ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z
 $ cd <model_name>.vX.Y.Z
 $ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z
