@@ -656,7 +656,7 @@ Example call:
    "Job Name [ ``$job`` ]","Name of the process that alerted the file, this is only used in the log output. It can be helpful when trying to identify the job that called ``dbn_alert``"
    "File [ ``$COMOUT/$outputfile`` ]","File to be alerted; must include the full path."
 
-.. _code_delivery_structure:
+.. _code-delivery-structure:
 
 Code Delivery and Vertical Structure
 ====================================
@@ -667,7 +667,7 @@ The following requirements apply to production code deliveries to NCO:
 
 .. _req-release-branch-name:
 
-* Code must exist on a release branch.
+* Code must exist on a release branch. 
 
   * Release branch names will follow the naming convention: ``release/vX.Y.Z``
 
@@ -677,15 +677,12 @@ The following requirements apply to production code deliveries to NCO:
 
   *  Release tags will follow the naming convention: ``<model_name>.vX.Y.Z``
 
-.. _req-release-obtain:
+.. _req-release-procurement:
 
-* NCO SPA team members must be able to acquire your code with the following git commands:
-
-``$ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z``
-
-``$ cd <model_name>.vX.Y.Z``
-
-``$ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z``
+* NCO SPA team members must be able to acquire code deliveries with the following git commands::
+$ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z
+$ cd <model_name>.vX.Y.Z
+$ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z
 
 B. Source Code Compilation (C or Fortran)
 -----------------------------------------
@@ -1234,3 +1231,15 @@ Appendix B: Variables and Directory Structure Tables
 
 
 *TTT* and *SSS* correspond to the 3-digit BUFR data category type and sub-type, respectively
+
+
+Itemized List of Standards
+==========================
+
+* :ref:`code-delivery-structure`
+
+  * :ref:`req-release-branch-name`
+
+  * :ref:`req-release-tag-name`
+
+  * :ref:`req-release-procurement`
