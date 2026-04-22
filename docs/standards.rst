@@ -671,17 +671,17 @@ procurement:
 
 Code must exist on a release branch. 
 
-* Release branch names will follow the naming convention: ``release/vX.Y.Z``
+* :ref:`Release branch names <req-release-branch-name>` will follow the naming convention: ``release/vX.Y.Z``
 
 .. _req-release-tag-name:
 
 The release branch must have a corresponding release tag.
 
-*  Release tags will follow the naming convention: ``<model_name>.vX.Y.Z``
+*  :ref:`Release tag names <req-release-tag-name>` will follow the naming convention: ``<model_name>.vX.Y.Z``
 
 .. _req-release-procurement:
 
-NCO SPA team members must be able to acquire code deliveries with the following git commands:
+NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands:
 
 .. code-block:: bash
 
@@ -1236,15 +1236,3 @@ Appendix B: Variables and Directory Structure Tables
 
 
 *TTT* and *SSS* correspond to the 3-digit BUFR data category type and sub-type, respectively
-
-
-Itemized List of Standards
-==========================
-
-* :ref:`code-delivery-structure`
-
-  * :ref:`Release branch names <req-release-branch-name>`
-
-  * :ref:`Release tag names <req-release-tag-name>`
-
-  * :ref:`Code delivery procurement <req-release-procurement>`
