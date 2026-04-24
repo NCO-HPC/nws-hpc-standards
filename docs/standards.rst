@@ -672,6 +672,7 @@ procurement:
 Code must exist on a release branch. 
 
 * :ref:`Release branch names <req-release-branch-name>` will follow one of the following naming conventions: 
+
   * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``
   * For code that is approved for production, use ``release/vX.Y.Z``
   * For repositories that support more than one model, use ``release/<model_name>.vX.Y[.Z]>``
@@ -680,7 +681,8 @@ Code must exist on a release branch.
 
 The release branch must have a corresponding release tag.
 
-*  :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+* :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+
   * For code that is intended for review by the NCO SPA team, use ``<model_name>.vX.Y.rc<N>``
   * For code that is approved for production, use ``<model_name>.vX.Y.Z``
 
