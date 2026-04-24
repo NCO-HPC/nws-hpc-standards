@@ -671,23 +671,38 @@ procurement:
 
 Code must exist on a release branch. 
 
-* :ref:`Release branch names <req-release-branch-name>` will follow the naming convention: ``release/vX.Y.Z``
+* :ref:`Release branch names <req-release-branch-name>` will follow one of the following naming conventions: 
+  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``
+  * For code that is approved for production, use ``release/vX.Y.Z``
+  * For repositories that support more than one model, use ``release/<model_name>.vX.Y[.Z]>``
 
 .. _req-release-tag-name:
 
 The release branch must have a corresponding release tag.
 
-*  :ref:`Release tag names <req-release-tag-name>` will follow the naming convention: ``<model_name>.vX.Y.Z``
+*  :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+  * For code that is intended for review by the NCO SPA team, use ``<model_name>.vX.Y.rc<N>``
+  * For code that is approved for production, use ``<model_name>.vX.Y.Z``
 
 .. _req-release-procurement:
 
-NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands:
+NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands.
+
+For code that is intended for review by the NCO SPA team:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<model_name>.git <model>.vX.Y.Z
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.rc<N>
+   $ cd <model_name>.vX.Y.rc<N>
+   $ git checkout release/vX.Y
+
+For code that is approved for production:
+
+.. code-block:: bash
+
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
    $ cd <model_name>.vX.Y.Z
-   $ git checkout tags/<model_name>.vX.Y.Z -b release/v.X.Y.Z
+   $ git checkout tags/<model_name>.vX.Y.Z
 
 B. Source Code Compilation (C or Fortran)
 -----------------------------------------
