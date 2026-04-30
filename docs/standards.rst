@@ -663,9 +663,9 @@ Code Delivery and Vertical Structure
 
 A. Code Delivery
 ----------------
-All new packages will be delivered via git-based services.
+All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
 
-Production code delivered via git will be held to the following requirements on naming conventions and procurement:
+Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
 
 .. _req-release-branch-name:
 
