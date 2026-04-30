@@ -656,16 +656,57 @@ Example call:
    "Job Name [ ``$job`` ]","Name of the process that alerted the file, this is only used in the log output. It can be helpful when trying to identify the job that called ``dbn_alert``"
    "File [ ``$COMOUT/$outputfile`` ]","File to be alerted; must include the full path."
 
-.. _code_delivery_structure:
+.. _code-delivery-structure:
 
 Code Delivery and Vertical Structure
 ====================================
 
-All components of an application to be run in the NCO production environment must be delivered to IDSB's Senior Production Analysts (SPA) via subversion, git or any other version control system that WCOSS has access to.
-When modifying an application that is already in production, always begin with the most recent production version at ``https://svnwcoss.ncep.noaa.gov/MODEL/tags/``.
+A. Code Delivery
+----------------
+All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
 
+Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
 
-A. Source Code Compilation (C or Fortran)
+.. _req-release-branch-name:
+
+Code must exist on a release branch. 
+
+* :ref:`Release branch names <req-release-branch-name>` will follow one of the following naming conventions: 
+
+  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``
+  * For code that is approved for production, use ``release/vX.Y.Z``
+  * For repositories that support more than one model, use ``release/<model_name>.vX.Y[.Z]>``
+
+.. _req-release-tag-name:
+
+The release branch must have a corresponding release tag.
+
+* :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+
+  * For code that is intended for review by the NCO SPA team, use ``<model_name>.vX.Y.rc<N>``
+  * For code that is approved for production, use ``<model_name>.vX.Y.Z``
+
+.. _req-release-procurement:
+
+NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands.
+
+For code that is intended for review by the NCO SPA team:
+
+.. code-block:: bash
+
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.rc<N>
+   $ cd <model_name>.vX.Y.rc<N>
+   $ git checkout release/vX.Y
+
+For code that is approved for production:
+
+.. code-block:: bash
+
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
+   $ cd <model_name>.vX.Y.Z
+   $ git checkout tags/<model_name>.vX.Y.Z
+
+B. Source Code Compilation (C or Fortran)
 -----------------------------------------
 
 The directory structure, compilation scripts, makefiles, and documentation for building must be understandable to someone unfamiliar with the specifics of your model.
@@ -695,7 +736,7 @@ Do not deliver pre-built executables or libraries to IDSB. It is the SPA's respo
 * Clear, concise instructions (see Example 10 in `Appendix A: Workflow Examples`_) will reduce confusion and errors if it becomes necessary to rebuild the executable quickly.
 
 
-B. Directory Structures
+C. Directory Structures
 -----------------------
 
 All components of an application to be implemented into the production environment are required to be in vertical structure, where, with the exception of system or standard production libraries and input data, all of the files required to completely build and run the jobs are contained in an application-specific package.
@@ -776,7 +817,7 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-C. Unresolved Bugs
+D. Unresolved Bugs
 ------------------
 
 Before handing off code to NCO, all Bugzilla entries must be addressed.
