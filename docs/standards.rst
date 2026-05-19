@@ -831,6 +831,7 @@ i. Issue Tracking on Remote Hosting Services
    "NCO Issue Label","Description"
    "NCO: Bug","A bug that was identified in production code or during NCO review"
    "NCO: Standards","An item in the standards document needs to be addressed"
+   "NCO: Enhancement","A suggested improvement from NCO" 
    "NCO Status: New","An NCO issue that has yet to be worked on by the development team"
    "NCO Status: In Progress","An NCO issue that is actively being worked on"
    "NCO Status: Pending Review","An NCO issue that has been addressed, but requires review from NCO SPA team member"
