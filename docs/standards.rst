@@ -820,6 +820,9 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 D. NCO Labeled Issues and Bugs
 ------------------------------
 
+i. Issue Tracking on Remote Hosting Services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. csv-table::
    :header-rows: 1
    :stub-columns: 0
@@ -837,6 +840,15 @@ Before handing off code to NCO, all NCO labeled issues must be addressed.
 Please mark all items that have been resolved with "NCO Status: Pending Review" and add a brief, but complete explanation of the resolution, including a link to a pull request which addresses the issue.
 The SPA will then verify the fix during testing and close the issue following implementation.
 If an NCO labeled issue cannot be resolved, justification must be added in a comment on the issue and approval received from the SPA team lead.
+
+ii. Bugzillas
+^^^^^^^^^^^^^
+
+NCO will be transitioning from Bugzilla reports to issue tracking on remote hosting services (e.g., GitHub).
+During this transition, all Bugzillas must still be addressed before code handoff to NCO.
+Please continue to mark all Bugzillas that have been resolved as such and add a brief, but complete explanation of the resolution, including relevant files modified to address the bug.
+The SPA will then verify the fix during testing and close the bug following implementation.
+If a bug cannot be resolved, a comment must be added and approval received from the SPA team lead.
 
 
 .. _appendices:
