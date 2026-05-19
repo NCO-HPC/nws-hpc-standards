@@ -827,7 +827,6 @@ D. NCO Labeled Issues and Bugs
 
    "NCO Issue Label","Description"
    "NCO: Bug","A bug that was identified in production code or during NCO review"
-   "NCO: EE2","An item in the EE2 checklist needs to be addressed"
    "NCO: Standards","An item in the standards document needs to be addressed"
    "NCO Status: New","An NCO issue that has yet to be worked on by the development team"
    "NCO Status: In Progress","An NCO issue that is actively being worked on"
