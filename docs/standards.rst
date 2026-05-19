@@ -817,13 +817,27 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-D. Unresolved Bugs
-------------------
+D. NCO Labeled Issues and Bugs
+------------------------------
 
-Before handing off code to NCO, all Bugzilla entries must be addressed.
-Please mark all items that have been resolved as such and add a brief complete explanation of the resolution, including relevant files modified to address the bug.
-The SPA will then verify the fix during testing and close the bug following implementation.
-If a bug cannot be resolved, a comment must be added and approval received from the SPA team lead.
+.. csv-table::
+   :header-rows: 1
+   :stub-columns: 0
+   :widths: auto
+
+   "NCO Issue Label","Description"
+   "NCO: Bug","A bug that was identified in production code or during NCO review"
+   "NCO: EE2","An item in the EE2 checklist needs to be addressed"
+   "NCO: Standards","An item in the standards document needs to be addressed"
+   "NCO Status: New","An NCO issue that has yet to be worked on by the development team"
+   "NCO Status: In Progress","An NCO issue that is actively being worked on"
+   "NCO Status: Pending Review","An NCO issue that has been addressed, but requires review from NCO SPA team member"
+   "NCO Status: Approved","An NCO issue that has been approved as fixed by an NCO SPA team member"
+
+Before handing off code to NCO, all NCO labeled issues must be addressed.
+Please mark all items that have been resolved with "NCO Status: Pending Review" and add a brief, but complete explanation of the resolution, including a link to a pull request which addresses the issue.
+The SPA will then verify the fix during testing and close the issue following implementation.
+If an NCO labeled issue cannot be resolved, justification must be added in a comment on the issue and approval received from the SPA team lead.
 
 
 .. _appendices:
