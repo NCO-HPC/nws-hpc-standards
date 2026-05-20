@@ -829,13 +829,12 @@ i. Issue Tracking on Remote Hosting Services
    :widths: auto
 
    "NCO Issue Label","Description"
-   "NCO: Bug","A bug that was identified in production code or during NCO review"
-   "NCO: Standards","An item in the standards document needs to be addressed"
-   "NCO: Enhancement","A suggested improvement from NCO" 
-   "NCO Status: New","An NCO issue that has yet to be worked on by the development team"
+   "NCO Type: Bug","A bug that was identified in production code or during NCO review"
+   "NCO Type: Standards","An item in the standards document needs to be addressed"
+   "NCO Type: Enhancement","A suggested improvement from NCO" 
+   "NCO Status: Open","An NCO issue that has yet to be worked on by the development team"
    "NCO Status: In Progress","An NCO issue that is actively being worked on"
-   "NCO Status: Pending Review","An NCO issue that has been addressed, but requires review from NCO SPA team member"
-   "NCO Status: Approved","An NCO issue that has been approved as fixed by an NCO SPA team member"
+   "NCO Status: Review Required","An NCO issue that has been addressed, but requires review from NCO SPA team member"
 
 Before handing off code to NCO, all NCO labeled issues must be addressed.
 Please mark all items that have been resolved with "NCO Status: Pending Review" and add a brief, but complete explanation of the resolution, including a link to a pull request which addresses the issue.
