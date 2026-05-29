@@ -9,10 +9,6 @@ on:
       - release/*
     paths:
       - docs/**
-#  pull_request_target:
-#    types: [issues, opened, reopened, synchronize]
-#    paths:
-#      - docs/**
   pull_request:
     types: [issues, opened, reopened, synchronize]
     paths:
@@ -74,14 +70,6 @@ jobs:
         path: docs/_build/latex/ee-docs.pdf
         if-no-files-found: ignore
 
-#    - name: Upload warnings (on failure)
-#      uses: actions/upload-artifact@v4
-#      if: failure()
-#      with:
-#        name: ee-docs.warnings.log
-#        path: docs/_build/warnings.log
-#        if-no-files-found: ignore
-#
     - name: Comment ReadDocs Link in PR
       if: ${{ github.event_name == 'pull_request' }}
       uses: actions/github-script@v7
