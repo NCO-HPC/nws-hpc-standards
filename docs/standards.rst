@@ -45,7 +45,7 @@ Workflow Diagram::
 Standard Variables, Formats, and Utilities
 ===========================================
 
-.. _standard_environment_variables:
+.. _Standard Environment Variables:
 
 A. Standard Environment Variables
 ---------------------------------
@@ -94,21 +94,21 @@ Variables that are not used in a given job need not be defined (keep the ``J-job
    "``DCOMIN``","dcom directory for current model's input data","J-job"
    "``DCOMINdatatype``","dcom directory for incoming data from datatype ``datatype``","J-job"
    "``DBNROOT``","Root directory for the data-alerting utilities","job card"
-   "``SENDECF``","Boolean [#]_ variable used to control ecflow_client child commands","job card"
-   "``SENDDBN``","Boolean [#]_ variable used to control sending products off WCOSS2","job card"
-   "``SENDDBN_NTC``","Boolean [#]_ variable used to control sending products with WMO headers off WCOSS2","job card"
-   "``SENDCOM``","Boolean [#]_ variable to control data copies to ``$COMOUT``","job card"
-   "``SENDWEB``","Boolean [#]_ variable used to control sending products to a web server, often ncorzdm","job card"
+   "``SENDECF``","Boolean [#bool]_ variable used to control ecflow_client child commands","job card"
+   "``SENDDBN``","Boolean [#bool]_ variable used to control sending products off WCOSS2","job card"
+   "``SENDDBN_NTC``","Boolean [#bool]_ variable used to control sending products with WMO headers off WCOSS2","job card"
+   "``SENDCOM``","Boolean [#bool]_ variable to control data copies to ``$COMOUT``","job card"
+   "``SENDWEB``","Boolean [#bool]_ variable used to control sending products to a web server, often ncorzdm","job card"
    "``model_ver``","version number of package in three digits; where ``package`` is the model's directory name","job card"
    "``module_ver``","Version of module ``module`` which is used at runtime by model ``model``","version file"
    "``extmodel_ver``","version of external model dependencies; specified with two digit version number","version file"
-   "``KEEPDATA``","Boolean [#]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
+   "``KEEPDATA``","Boolean [#bool]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
    "``MAILTO``","List of email addresses to send email to","job card"
    "``MAILCC``","List of email addresses to cc on email","job card"
 
 
 
-.. [#] boolean variables are set to “YES” or “NO” (all caps) 
+.. [#bool] boolean variables are set to “YES” or “NO” (all caps) 
 
 
 B. File Name Conventions
@@ -1116,7 +1116,7 @@ These scripts can be combined into a single script using arguments.
 
 **Example 12: modulefiles/build_pmb.module (to be loaded prior to compilation)**
 
-.. code-block:: lua
+.. code-block:: bash
 
    --%Module####################################################
    --                                                 First.Last@noaa.gov
