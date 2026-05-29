@@ -817,8 +817,13 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-D. NCO Labeled Issues and Bugs
+D. NCO Labeled Issues and Bugzilla Bugs
 ------------------------------
+Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugs") must be addressed.
+
+The SPA will then verify the fix during testing and close the issue/Bug following implementation.
+
+If an NCO labeled issue or Bug cannot be resolved, justification must be added in a comment on the issue/Bug and approval received from the SPA Team Lead.
 
 i. Issue Tracking on Remote Hosting Services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -836,19 +841,14 @@ i. Issue Tracking on Remote Hosting Services
    "NCO Status: In Progress","An NCO issue that is actively being worked on"
    "NCO Status: Review Required","An NCO issue that has been addressed, but requires review from NCO SPA team member"
 
-Before handing off code to NCO, all NCO labeled issues must be addressed.
-Please mark all items that have been resolved with "NCO Status: Pending Review" and add a brief, but complete explanation of the resolution, including a link to a pull request which addresses the issue.
-The SPA will then verify the fix during testing and close the issue following implementation.
-If an NCO labeled issue cannot be resolved, justification must be added in a comment on the issue and approval received from the SPA team lead.
+Please mark all items that have been resolved with "NCO Status: Review Required" and explain the resolution, including a link to a pull request which addresses the issue.
 
 ii. Bugzillas
 ^^^^^^^^^^^^^
 
-NCO will be transitioning from Bugzilla reports to issue tracking on remote hosting services (e.g., GitHub).
-During this transition, all Bugzillas must still be addressed before code handoff to NCO.
-Please continue to mark all Bugzillas that have been resolved as such and add a brief, but complete explanation of the resolution, including relevant files modified to address the bug.
-The SPA will then verify the fix during testing and close the bug following implementation.
-If a bug cannot be resolved, a comment must be added and approval received from the SPA team lead.
+NCO will be transitioning from Bugzilla to issue tracking on remote hosting services (e.g., GitHub).
+
+Please continue to mark all Bugzilla Bugs that have been resolved as such and explain the resolution, including relevant files modified to address the bug.
 
 
 .. _appendices:
