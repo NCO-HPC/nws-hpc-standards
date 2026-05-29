@@ -817,13 +817,38 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-D. Unresolved Bugs
-------------------
+D. NCO Labeled Issues and Bugzilla Bugs
+------------------------------
+Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugzillas") must be addressed.
 
-Before handing off code to NCO, all Bugzilla entries must be addressed.
-Please mark all items that have been resolved as such and add a brief complete explanation of the resolution, including relevant files modified to address the bug.
-The SPA will then verify the fix during testing and close the bug following implementation.
-If a bug cannot be resolved, a comment must be added and approval received from the SPA team lead.
+The SPA will then verify the fix during testing and close the issue/Bugzilla following implementation.
+
+If an NCO labeled issue or Bugzilla cannot be resolved, justification must be added in a comment on the issue/Bugzilla and approval received from the SPA Team Lead.
+
+i. Issue Tracking on Remote Hosting Services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+   :header-rows: 1
+   :stub-columns: 0
+   :widths: auto
+
+   "NCO Issue Label","Description"
+   "NCO Type: Bug","A bug that was identified in production code or during NCO review"
+   "NCO Type: Standards","An item in the standards document needs to be addressed"
+   "NCO Type: Enhancement","A suggested improvement from NCO" 
+   "NCO Status: Open","An NCO issue that has yet to be worked on by the development team"
+   "NCO Status: In Progress","An NCO issue that is actively being worked on"
+   "NCO Status: Review Required","An NCO issue that has been addressed, but requires review from NCO SPA team member"
+
+Please mark all items that have been resolved with "NCO Status: Review Required" and explain the resolution, including a link to a pull request which addresses the issue.
+
+ii. Bugzillas
+^^^^^^^^^^^^^
+
+NCO will be transitioning from Bugzilla to issue tracking on remote hosting services (e.g., GitHub).
+
+Please continue to mark all Bugzillas that have been resolved as such and explain the resolution, including relevant files modified to address the Bugzilla.
 
 
 .. _appendices:
