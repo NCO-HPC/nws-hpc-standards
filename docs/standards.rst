@@ -623,6 +623,7 @@ Please also observe the following points:
 * All packages that use Python scripts must specify a Python version through the module system, and must only call a Python executable that is from a module, not the system version.
 * "``module load python/${python_ver:?}``" or similar must be present in all job files that will lead to python script calls, where the python version is defined in the version file.
 * Python version must be at version 3 or higher.
+* Python “FutureWarning” messages indicate that a specific feature, function, or syntax that is currently being used will be changed or removed in a future version of Python or in a future version of a Python library. Python “FutureWarning” messages are acceptable messages in operations and should not be suppressed. Developers should make an effort to resolve “FutureWarning” messages, when possible, in order to prevent production jobs from failing in the future. 
 
 Reference `Appendix A: Workflow Examples`_ for commented examples of a version file, ecFlow script, J-job, ex-script, modulefile and makefile.
 
