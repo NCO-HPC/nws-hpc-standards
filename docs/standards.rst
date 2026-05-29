@@ -836,9 +836,12 @@ i. Issue Tracking on Remote Hosting Services
    "NCO Status: In Progress","An NCO issue that is actively being worked on"
    "NCO Status: Review Required","An NCO issue that has been addressed, but requires review from NCO SPA team member"
 
-Before handing off code to NCO, all NCO labeled issues must be addressed.
-Please mark all items that have been resolved with "NCO Status: Pending Review" and add a brief, but complete explanation of the resolution, including a link to a pull request which addresses the issue.
+Before handing off code to NCO, all pre-existing NCO labeled issues must be addressed.
+
+Please mark all items that have been resolved with "NCO Status: Review Required" and explanain the resolution, including a link to a pull request which addresses the issue.
+
 The SPA will then verify the fix during testing and close the issue following implementation.
+
 If an NCO labeled issue cannot be resolved, justification must be added in a comment on the issue and approval received from the SPA team lead.
 
 ii. Bugzillas
