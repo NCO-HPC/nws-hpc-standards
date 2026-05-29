@@ -819,11 +819,11 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 D. NCO Labeled Issues and Bugzilla Bugs
 ------------------------------
-Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugs") must be addressed.
+Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugzillas") must be addressed.
 
 The SPA will then verify the fix during testing and close the issue/Bug following implementation.
 
-If an NCO labeled issue or Bug cannot be resolved, justification must be added in a comment on the issue/Bug and approval received from the SPA Team Lead.
+If an NCO labeled issue or Bugzilla cannot be resolved, justification must be added in a comment on the issue/Bugzilla and approval received from the SPA Team Lead.
 
 i. Issue Tracking on Remote Hosting Services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -848,7 +848,7 @@ ii. Bugzillas
 
 NCO will be transitioning from Bugzilla to issue tracking on remote hosting services (e.g., GitHub).
 
-Please continue to mark all Bugzilla Bugs that have been resolved as such and explain the resolution, including relevant files modified to address the bug.
+Please continue to mark all Bugzillas that have been resolved as such and explain the resolution, including relevant files modified to address the Bugzilla.
 
 
 .. _appendices:
