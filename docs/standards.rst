@@ -664,6 +664,12 @@ Code Delivery and Vertical Structure
 
 A. Code Delivery
 ----------------
+
+Delivered code must:
+
+* contain any production bug fixes implemented since the last code delivery.
+* only contain changes that were defined at project kickoff, and are needed for the production environment.
+
 All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
 
 Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
