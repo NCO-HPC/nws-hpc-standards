@@ -8,8 +8,30 @@ This document outlines policies and technical standards that must be met in orde
 WCOSS is currently composed of a GDIT managed Cray-EX cluster located in Manassas, VA and Phoenix, AZ.
 The coding standards, examples of operational-quality scripts and code, and best practices presented have been established to enable operational stability, efficient troubleshooting and improved Environmental Equivalence (EE) between environments within NCO and between NCO and developing organizations.
 
-.. note::
-   The original document contained the NCEP logo here. 
+.. _governance:
+
+Standards Governance and Lifecycle
+==================================
+
+These standards are maintained by the NCO Senior Production Analyst (SPA) Team, with input from the Office of Modeling and Development (OMD) and other development teams. Both the SPA Team and development teams are the intendend audience.
+
+i. Versioning
+^^^^^^^^^^^^^
+
+A two-digit semantic versioning schema (MAJOR.MINOR) will be used to release versions of these standards.
+
+ii. Version Accountability
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- New packages, and upgrades to existing packages, are expected to comply with the most recently released version of the standards, as of the date of the project kickoff.
+- Active production packages will be brought into compliance with the latest version of the standards during the next upgrade.
+
+
+iii. Contributing
+^^^^^^^^^^^^^^^
+
+Modifications to these standards may be made by creating an issue or a pull request using the `GitHub repository <https://github.com/NCO-HPC/nws-hpc-standards>`_. Each change will be discussed in the corresponding issue or pull request before approval. Relevant parties required for approval will be tagged in each discussion.
+
 
 .. _workflow:
 
