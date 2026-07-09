@@ -696,44 +696,39 @@ All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
 
 Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
 
-.. _req-release-branch-name:
+.. _req-branch-names:
 
-Code must exist on a release branch. 
+Code must exist on a distinct branch for delivery and implementation.
 
-* :ref:`Release branch names <req-release-branch-name>` will follow one of the following naming conventions: 
+* :ref:`Branch names <req-branch-names>` will follow one of the following naming conventions: 
 
-  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``
-  * For code that is approved for production, use ``release/vX.Y.Z``
-  * For repositories that support more than one model, use ``release/<model_name>.vX.Y[.Z]>``
+  * For code that is intended for review by the NCO SPA team, use ``release_candidate/<change_description>``
+  * For code that is approved for a production implementation, use ``release/vX.Y.Z``
+  * For repositories that support more than one model, use ``release_candidate/<model>-<change_description>`` for code deliveries and ``release/<model_name>.vX.Y.Z>`` for code approved for a production implementation.
 
 .. _req-release-tag-name:
 
-The release branch must have a corresponding release tag.
+Each ``release/`` branch that is approved for a production implementation must have a corresponding release tag. :ref:`Release tag names <req-release-tag-name>` will follow the naming convention ``<model_name>.vX.Y.Z``.
 
-* :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+.. _req-procurement:
 
-  * For code that is intended for review by the NCO SPA team, use ``<model_name>.vX.Y.rc<N>``
-  * For code that is approved for production, use ``<model_name>.vX.Y.Z``
-
-.. _req-release-procurement:
-
-NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands.
+NCO SPA team members must be able to :ref:`procure code deliveres <req-procurement>` with the following git commands.
 
 For code that is intended for review by the NCO SPA team:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.rc<N>
-   $ cd <model_name>.vX.Y.rc<N>
-   $ git checkout release/vX.Y
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.<change_description>
+   $ cd <model_name>.<change_description>
+   $ git checkout release_candidate/<change_description>
 
-For code that is approved for production:
+For code that is approved for a production implementation:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
+   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
    $ cd <model_name>.vX.Y.Z
-   $ git checkout tags/<model_name>.vX.Y.Z
+   $ git switch -c <model_name>.vX.Y.Z
 
 B. Source Code Compilation (C or Fortran)
 -----------------------------------------
