@@ -717,8 +717,10 @@ When NCO and a development team agree that they are ready to implement changes o
 * :ref:`Release tags <req-release-tag-name>` will follow these naming conventions:
 
   * For code that is intended for review by the NCO SPA team, use ``vX.Y-rc<#>`` to indicate release candidates on ``release/`` branches.
+
     * Begin release candidate numbering at 0 and increment for each change set that NCO places into parallel or evaluation.
     * Release candidate tags should exist only on ``release/`` branches.
+
   * For code that is intended for production implementation, use ``vX.Y.Z``.
 
 .. _req-procurement:
@@ -737,7 +739,7 @@ For code that is approved for a production implementation:
 
 .. code-block:: bash
 
-   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_nam e>.vX.Y.Z
+   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
    $ cd <model_name>.vX.Y.Z
    $ git switch -c <model_name>.vX.Y.Z
 
