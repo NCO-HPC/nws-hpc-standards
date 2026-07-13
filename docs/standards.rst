@@ -698,17 +698,26 @@ Production code delivered via git (and hosted on GitHub) will be held to the fol
 
 .. _req-branch-names:
 
-Code must exist on a distinct branch for delivery and implementation.
+Code must exist on a distinct branch for delivery.
 
-* :ref:`Branch names <req-branch-names>` will follow one of the following naming conventions: 
+* :ref:`Branch names <req-branch-names>` for upgrades (versions ``vX.Y``) will use one of the following naming conventions:
 
-  * For code that is intended for review by the NCO SPA team, use ``release_candidate/<change_description>``
-  * For code that is approved for a production implementation, use ``release/vX.Y.Z``
-  * For repositories that support more than one model, use ``release_candidate/<model>-<change_description>`` for code deliveries and ``release/<model_name>.vX.Y.Z>`` for code approved for a production implementation.
+  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``.
+  * For repositories that support more than one model, use ``release/<model>.vX.Y``.
+
+* Branch names for bugfixes, hotfixes, and routine maintenance (versions ``vX.Y.Z``)  will use one of the following naming conventions:
+
+  * ``bugfix/<short_description>``
+  * ``hotfix/<short_description>``
 
 .. _req-release-tag-name:
 
-Each ``release/`` branch that is approved for a production implementation must have a corresponding release tag. :ref:`Release tag names <req-release-tag-name>` will follow the naming convention ``<model_name>.vX.Y.Z``.
+* :ref:`Release tags <req-release-tag-name>` will follow these naming conventions:
+
+  * For code that is intended for review by the NCO SPA team, use ``vX.Y-rc<#>`` to indicate release candidates on ``release/`` branches.
+    * Begin release candidate numbering at 0 and increment for each change set that NCO places into parallel or evaluation.
+    * Release candidate tags should exist only on ``release/`` branches.
+  * For code that is intended for production implementation, use ``vX.Y.Z``.
 
 .. _req-procurement:
 
@@ -718,15 +727,15 @@ For code that is intended for review by the NCO SPA team:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.<change_description>
-   $ cd <model_name>.<change_description>
-   $ git checkout release_candidate/<change_description>
+   $ git clone git@github.com:<organization>/<repo_name>.git <branch_name>
+   $ cd <model_name>.<branch_name>
+   $ git checkout <branch_name>
 
 For code that is approved for a production implementation:
 
 .. code-block:: bash
 
-   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
+   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_nam e>.vX.Y.Z
    $ cd <model_name>.vX.Y.Z
    $ git switch -c <model_name>.vX.Y.Z
 
