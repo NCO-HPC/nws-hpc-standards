@@ -707,8 +707,8 @@ Code must exist on a distinct branch for delivery.
 
 * Branch names for bugfixes, hotfixes, and routine maintenance (versions ``vX.Y.Z``)  will use one of the following naming conventions:
 
-  * ``bugfix/<short_description>``
-  * ``hotfix/<short_description>``
+  * For maintenance patches and non-critical bugs, use ``bugfix/<short_description>``
+  * For critical production bugs, use ``hotfix/<short_description>``
 
 When NCO and a development team agree that they are ready to implement changes on a ``bugfix/`` or ``hotfix/`` branch, both teams will make a joint decision about the specific version number that will be used for implementation. A tag must be created to reflect the chosen version number.
 
