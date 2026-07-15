@@ -696,44 +696,52 @@ All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
 
 Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
 
-.. _req-release-branch-name:
+.. _req-branch-names:
 
-Code must exist on a release branch. 
+Code must exist on a distinct branch for delivery.
 
-* :ref:`Release branch names <req-release-branch-name>` will follow one of the following naming conventions: 
+* :ref:`Branch names <req-branch-names>` for upgrades (versions ``vX.Y``) will use one of the following naming conventions:
 
-  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``
-  * For code that is approved for production, use ``release/vX.Y.Z``
-  * For repositories that support more than one model, use ``release/<model_name>.vX.Y[.Z]>``
+  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``.
+  * For repositories that support more than one model, use ``release/<model>.vX.Y``.
+
+* Branch names for bugfixes, hotfixes, and routine maintenance (versions ``vX.Y.Z``)  will use one of the following naming conventions:
+
+  * For maintenance patches and non-critical bugs, use ``bugfix/<short_description>``
+  * For critical production bugs, use ``hotfix/<short_description>``
+
+When NCO and a development team agree that they are ready to implement changes on a ``bugfix/`` or ``hotfix/`` branch, both teams will make a joint decision about the specific version number that will be used for implementation. A tag must be created to reflect the chosen version number.
 
 .. _req-release-tag-name:
 
-The release branch must have a corresponding release tag.
+* :ref:`Release tags <req-release-tag-name>` will follow these naming conventions:
 
-* :ref:`Release tag names <req-release-tag-name>` will follow one of the following naming conventions:
+  * For code that is intended for review by the NCO SPA team, use ``vX.Y-rc<#>`` to indicate release candidates on ``release/`` branches.
 
-  * For code that is intended for review by the NCO SPA team, use ``<model_name>.vX.Y.rc<N>``
-  * For code that is approved for production, use ``<model_name>.vX.Y.Z``
+    * Begin release candidate numbering at 0 and increment for each change set that NCO places into parallel or evaluation.
+    * Release candidate tags should exist only on ``release/`` branches.
 
-.. _req-release-procurement:
+  * For code that is intended for production implementation, use ``vX.Y.Z``.
 
-NCO SPA team members must be able to :ref:`procure code deliveres <req-release-procurement>` with the following git commands.
+.. _req-procurement:
+
+NCO SPA team members must be able to :ref:`procure code deliveres <req-procurement>` with the following git commands.
 
 For code that is intended for review by the NCO SPA team:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.rc<N>
-   $ cd <model_name>.vX.Y.rc<N>
-   $ git checkout release/vX.Y
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.<branch_name>
+   $ cd <model_name>.<branch_name>
+   $ git checkout <branch_name>
 
-For code that is approved for production:
+For code that is approved for a production implementation:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
+   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
    $ cd <model_name>.vX.Y.Z
-   $ git checkout tags/<model_name>.vX.Y.Z
+   $ git switch -c <model_name>.vX.Y.Z
 
 B. Source Code Compilation (C or Fortran)
 -----------------------------------------
