@@ -731,7 +731,7 @@ For code that is intended for review by the NCO SPA team:
 
 .. code-block:: bash
 
-   $ git clone git@github.com:<organization>/<repo_name>.git <branch_name>
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.<branch_name>
    $ cd <model_name>.<branch_name>
    $ git checkout <branch_name>
 
