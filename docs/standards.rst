@@ -8,8 +8,30 @@ This document outlines policies and technical standards that must be met in orde
 WCOSS is currently composed of a GDIT managed Cray-EX cluster located in Manassas, VA and Phoenix, AZ.
 The coding standards, examples of operational-quality scripts and code, and best practices presented have been established to enable operational stability, efficient troubleshooting and improved Environmental Equivalence (EE) between environments within NCO and between NCO and developing organizations.
 
-.. note::
-   The original document contained the NCEP logo here. 
+.. _governance:
+
+Standards Governance and Lifecycle
+==================================
+
+These standards are maintained by the NCO Senior Production Analyst (SPA) Team, with input from the Office of Modeling and Development (OMD) and other development teams. Both the SPA Team and development teams are the intendend audience.
+
+i. Versioning
+^^^^^^^^^^^^^
+
+A two-digit semantic versioning schema (MAJOR.MINOR) will be used to release versions of these standards.
+
+ii. Version Accountability
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- New packages, and upgrades to existing packages, are expected to comply with the most recently released version of the standards, as of the date of the project kickoff.
+- Active production packages will be brought into compliance with the latest version of the standards during the next upgrade.
+
+
+iii. Contributing
+^^^^^^^^^^^^^^^
+
+Modifications to these standards may be made by creating an issue or a pull request using the `GitHub repository <https://github.com/NCO-HPC/nws-hpc-standards>`_. Each change will be discussed in the corresponding issue or pull request before approval. Relevant parties required for approval will be tagged in each discussion.
+
 
 .. _workflow:
 
@@ -45,7 +67,7 @@ Workflow Diagram::
 Standard Variables, Formats, and Utilities
 ===========================================
 
-.. _standard_environment_variables:
+.. _Standard Environment Variables:
 
 A. Standard Environment Variables
 ---------------------------------
@@ -94,21 +116,21 @@ Variables that are not used in a given job need not be defined (keep the ``J-job
    "``DCOMIN``","dcom directory for current model's input data","J-job"
    "``DCOMINdatatype``","dcom directory for incoming data from datatype ``datatype``","J-job"
    "``DBNROOT``","Root directory for the data-alerting utilities","job card"
-   "``SENDECF``","Boolean [#]_ variable used to control ecflow_client child commands","job card"
-   "``SENDDBN``","Boolean [#]_ variable used to control sending products off WCOSS2","job card"
-   "``SENDDBN_NTC``","Boolean [#]_ variable used to control sending products with WMO headers off WCOSS2","job card"
-   "``SENDCOM``","Boolean [#]_ variable to control data copies to ``$COMOUT``","job card"
-   "``SENDWEB``","Boolean [#]_ variable used to control sending products to a web server, often ncorzdm","job card"
+   "``SENDECF``","Boolean [#bool]_ variable used to control ecflow_client child commands","job card"
+   "``SENDDBN``","Boolean [#bool]_ variable used to control sending products off WCOSS2","job card"
+   "``SENDDBN_NTC``","Boolean [#bool]_ variable used to control sending products with WMO headers off WCOSS2","job card"
+   "``SENDCOM``","Boolean [#bool]_ variable to control data copies to ``$COMOUT``","job card"
+   "``SENDWEB``","Boolean [#bool]_ variable used to control sending products to a web server, often ncorzdm","job card"
    "``model_ver``","version number of package in three digits; where ``package`` is the model's directory name","job card"
    "``module_ver``","Version of module ``module`` which is used at runtime by model ``model``","version file"
    "``extmodel_ver``","version of external model dependencies; specified with two digit version number","version file"
-   "``KEEPDATA``","Boolean [#]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
+   "``KEEPDATA``","Boolean [#bool]_ variable used to specify whether or not the working directory should be kept upon successful job completion.","job card"
    "``MAILTO``","List of email addresses to send email to","job card"
    "``MAILCC``","List of email addresses to cc on email","job card"
 
 
 
-.. [#] boolean variables are set to “YES” or “NO” (all caps) 
+.. [#bool] boolean variables are set to “YES” or “NO” (all caps) 
 
 
 B. File Name Conventions
@@ -623,6 +645,7 @@ Please also observe the following points:
 * All packages that use Python scripts must specify a Python version through the module system, and must only call a Python executable that is from a module, not the system version.
 * "``module load python/${python_ver:?}``" or similar must be present in all job files that will lead to python script calls, where the python version is defined in the version file.
 * Python version must be at version 3 or higher.
+* Python “FutureWarning” messages indicate that a specific feature, function, or syntax that is currently being used will be changed or removed in a future version of Python or in a future version of a Python library. Python “FutureWarning” messages are acceptable messages in operations and should not be suppressed. Developers should make an effort to resolve “FutureWarning” messages, when possible, in order to prevent production jobs from failing in the future. 
 
 Reference `Appendix A: Workflow Examples`_ for commented examples of a version file, ecFlow script, J-job, ex-script, modulefile and makefile.
 
@@ -656,16 +679,71 @@ Example call:
    "Job Name [ ``$job`` ]","Name of the process that alerted the file, this is only used in the log output. It can be helpful when trying to identify the job that called ``dbn_alert``"
    "File [ ``$COMOUT/$outputfile`` ]","File to be alerted; must include the full path."
 
-.. _code_delivery_structure:
+.. _code-delivery-structure:
 
 Code Delivery and Vertical Structure
 ====================================
 
-All components of an application to be run in the NCO production environment must be delivered to IDSB's Senior Production Analysts (SPA) via subversion, git or any other version control system that WCOSS has access to.
-When modifying an application that is already in production, always begin with the most recent production version at ``https://svnwcoss.ncep.noaa.gov/MODEL/tags/``.
+A. Code Delivery
+----------------
 
+Delivered code must:
 
-A. Source Code Compilation (C or Fortran)
+* contain any production bug fixes implemented since the last code delivery.
+* only contain changes that were defined at project kickoff, and are needed for the production environment.
+
+All new packages will be delivered via git-based services (e.g. GitHub, GitLab).
+
+Production code delivered via git (and hosted on GitHub) will be held to the following requirements on naming conventions and procurement:
+
+.. _req-branch-names:
+
+Code must exist on a distinct branch for delivery.
+
+* :ref:`Branch names <req-branch-names>` for upgrades (versions ``vX.Y``) will use one of the following naming conventions:
+
+  * For code that is intended for review by the NCO SPA team, use ``release/vX.Y``.
+  * For repositories that support more than one model, use ``release/<model>.vX.Y``.
+
+* Branch names for bugfixes, hotfixes, and routine maintenance (versions ``vX.Y.Z``)  will use one of the following naming conventions:
+
+  * For maintenance patches and non-critical bugs, use ``bugfix/<short_description>``
+  * For critical production bugs, use ``hotfix/<short_description>``
+
+When NCO and a development team agree that they are ready to implement changes on a ``bugfix/`` or ``hotfix/`` branch, both teams will make a joint decision about the specific version number that will be used for implementation. A tag must be created to reflect the chosen version number.
+
+.. _req-release-tag-name:
+
+* :ref:`Release tags <req-release-tag-name>` will follow these naming conventions:
+
+  * For code that is intended for review by the NCO SPA team, use ``vX.Y-rc<#>`` to indicate release candidates on ``release/`` branches.
+
+    * Begin release candidate numbering at 0 and increment for each change set that NCO places into parallel or evaluation.
+    * Release candidate tags should exist only on ``release/`` branches.
+
+  * For code that is intended for production implementation, use ``vX.Y.Z``.
+
+.. _req-procurement:
+
+NCO SPA team members must be able to :ref:`procure code deliveres <req-procurement>` with the following git commands.
+
+For code that is intended for review by the NCO SPA team:
+
+.. code-block:: bash
+
+   $ git clone git@github.com:<organization>/<repo_name>.git <model_name>.<branch_name>
+   $ cd <model_name>.<branch_name>
+   $ git checkout <branch_name>
+
+For code that is approved for a production implementation:
+
+.. code-block:: bash
+
+   $ git clone -b <model_name>.vX.Y.Z git@github.com:<organization>/<repo_name>.git <model_name>.vX.Y.Z
+   $ cd <model_name>.vX.Y.Z
+   $ git switch -c <model_name>.vX.Y.Z
+
+B. Source Code Compilation (C or Fortran)
 -----------------------------------------
 
 The directory structure, compilation scripts, makefiles, and documentation for building must be understandable to someone unfamiliar with the specifics of your model.
@@ -695,7 +773,7 @@ Do not deliver pre-built executables or libraries to IDSB. It is the SPA's respo
 * Clear, concise instructions (see Example 10 in `Appendix A: Workflow Examples`_) will reduce confusion and errors if it becomes necessary to rebuild the executable quickly.
 
 
-B. Directory Structures
+C. Directory Structures
 -----------------------
 
 All components of an application to be implemented into the production environment are required to be in vertical structure, where, with the exception of system or standard production libraries and input data, all of the files required to completely build and run the jobs are contained in an application-specific package.
@@ -776,13 +854,38 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 
-C. Unresolved Bugs
-------------------
+D. NCO Labeled Issues and Bugzilla Bugs
+------------------------------
+Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugzillas") must be addressed.
 
-Before handing off code to NCO, all Bugzilla entries must be addressed.
-Please mark all items that have been resolved as such and add a brief complete explanation of the resolution, including relevant files modified to address the bug.
-The SPA will then verify the fix during testing and close the bug following implementation.
-If a bug cannot be resolved, a comment must be added and approval received from the SPA team lead.
+The SPA will then verify the fix during testing and close the issue/Bugzilla following implementation.
+
+If an NCO labeled issue or Bugzilla cannot be resolved, justification must be added in a comment on the issue/Bugzilla and approval received from the SPA Team Lead.
+
+i. Issue Tracking on Remote Hosting Services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+   :header-rows: 1
+   :stub-columns: 0
+   :widths: auto
+
+   "NCO Issue Label","Description"
+   "NCO Type: Bug","A bug that was identified in production code or during NCO review"
+   "NCO Type: Standards","An item in the standards document needs to be addressed"
+   "NCO Type: Enhancement","A suggested improvement from NCO" 
+   "NCO Status: Open","An NCO issue that has yet to be worked on by the development team"
+   "NCO Status: In Progress","An NCO issue that is actively being worked on"
+   "NCO Status: Review Required","An NCO issue that has been addressed, but requires review from NCO SPA team member"
+
+Please mark all items that have been resolved with "NCO Status: Review Required" and explain the resolution, including a link to a pull request which addresses the issue.
+
+ii. Bugzillas
+^^^^^^^^^^^^^
+
+NCO will be transitioning from Bugzilla to issue tracking on remote hosting services (e.g., GitHub).
+
+Please continue to mark all Bugzillas that have been resolved as such and explain the resolution, including relevant files modified to address the Bugzilla.
 
 
 .. _appendices:
@@ -1050,7 +1153,7 @@ These scripts can be combined into a single script using arguments.
 
 **Example 12: modulefiles/build_pmb.module (to be loaded prior to compilation)**
 
-.. code-block:: lua
+.. code-block:: bash
 
    --%Module####################################################
    --                                                 First.Last@noaa.gov
