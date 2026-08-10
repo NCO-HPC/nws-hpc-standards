@@ -15,20 +15,20 @@ Standards Governance and Lifecycle
 
 These standards are maintained by the NCO Senior Production Analyst (SPA) Team, with input from the Office of Modeling and Development (OMD) and other development teams. Both the SPA Team and development teams are the intendend audience.
 
-i. Versioning
-^^^^^^^^^^^^^
+A. Versioning
+-------------
 
 A two-digit semantic versioning schema (MAJOR.MINOR) will be used to release versions of these standards.
 
-ii. Version Accountability
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+B. Version Accountability
+-------------------------
 
 - New packages, and upgrades to existing packages, are expected to comply with the most recently released version of the standards, as of the date of the project kickoff.
 - Active production packages will be brought into compliance with the latest version of the standards during the next upgrade.
 
 
-iii. Contributing
-^^^^^^^^^^^^^^^
+C. Contributing
+---------------
 
 Modifications to these standards may be made by creating an issue or a pull request using the `GitHub repository <https://github.com/NCO-HPC/nws-hpc-standards>`_. Each change will be discussed in the corresponding issue or pull request before approval. Relevant parties required for approval will be tagged in each discussion.
 
@@ -204,7 +204,7 @@ See `Appendix A: Workflow Examples`_ for examples of these utilities in use.
   The first argument is the log file name and the second is the message.
   The log file will default to stdout.
 
-*startmsg and postmsg are no longer required in operations but the utilities will continue to be maintained.
+\* startmsg and postmsg are no longer required in operations but the utilities will continue to be maintained.
 
 ``err_chk`` / ``err_exit``
   It is imperative that all production code and scripts broadly employ error checking to catch and recover from errors as quickly as possible.
@@ -576,19 +576,20 @@ Makefiles must only include compilers and libraries using variables defined in m
 * Input/output errors must be handled gracefully. See available I/O control options to trap errors and add logic to allow the code to continue or fail as appropriate.
 * When an executable aborts, has other problems, or needs to be tested, it is vitally important to know which disk files it uses for input and output.
 * To accomplish this, the following is required:
+
     a) Paths of files outside a job's working directory (e.g., input data from ``COMIN`` or ``DCOM``) must not be hard-coded in the source code, but rather defined in the calling script.
     This can be done in one of the following ways:
-       * By using ``FILE=var`` option in the ``OPEN`` statement, where var is a character variable;
-           the variable value must be exported to the shell environment before calling the executable and retrieved from the environment by either the routine ``GETENV`` (Fortran extension, requires "use IFPORT" in ifort) or the Fortran-2003 standard intrinsic ``GET_ENVIRONMENT_VARIABLE``.
-       * (An ifort extension) by omitting the ``FILE=`` option, in which case the file name must be set by exporting the value of the character ``FORTn`` variable, where n is the Fortran I/O unit number as set in the ``OPEN`` statement.
-           For ifort, n is any positive integer fitting in a 4-byte variable.
-           The production utility ``prep_step`` (clearing the values of all FORTn variables) must be called before each executable if this method is used.
-       * By omitting the ``FILE=var`` option, and not setting the ``FORTn`` variable, in which case the default file name “fort.n” will be used by the executable.
-           This method is allowed only if this file is a symbolic link, eg: ``ln -sf $DATA/pgrbf01 fort.11``.
+
+       * By using ``FILE=var`` option in the ``OPEN`` statement, where var is a character variable; the variable value must be exported to the shell environment before calling the executable and retrieved from the environment by either the routine ``GETENV`` (Fortran extension, requires "use IFPORT" in ifort) or the Fortran-2003 standard intrinsic ``GET_ENVIRONMENT_VARIABLE``.
+       * (An ifort extension) by omitting the ``FILE=`` option, in which case the file name must be set by exporting the value of the character ``FORTn`` variable, where n is the Fortran I/O unit number as set in the ``OPEN`` statement. For ifort, n is any positive integer fitting in a 4-byte variable. The production utility ``prep_step`` (clearing the values of all FORTn variables) must be called before each executable if this method is used.
+       * By omitting the ``FILE=var`` option, and not setting the ``FORTn`` variable, in which case the default file name “fort.n” will be used by the executable. This method is allowed only if this file is a symbolic link, eg: ``ln -sf $DATA/pgrbf01 fort.11``.
+
     b) It must be clear, by looking at the file names defined before calling the executable, which files are read from (input), written to (output), and which are both read and written within the same executable (work files).
+
        It can be ensured by one of the following:
           * Using numbers 11-49 for input, 51-79 for output, 80-94 for work files (preferred method for executables opening a small number of files).
           * Exporting separately the three groups of file names with appropriate headers / comments at the top of each block.
+
 * Good programming practices must be followed to improve readability. For example, structured control must be used instead of ``GO TO`` statements, and code must be well documented.
 * Executables should be built with production compilation settings and tested for and ridded of memory leaks/allocation problems with, e.g., ``valgrind4hpc``
 
@@ -855,7 +856,7 @@ Table 5 (below), Table 7, Table 8, and Table 9 (in `Appendix B: Variables and Di
 
 
 D. NCO Labeled Issues and Bugzilla Bugs
-------------------------------
+---------------------------------------
 Before handing off code to NCO, all pre-existing NCO labeled issues and/or Bugzilla Bugs (hereafter simply "Bugzillas") must be addressed.
 
 The SPA will then verify the fix during testing and close the issue/Bugzilla following implementation.
