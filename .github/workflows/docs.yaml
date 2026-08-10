@@ -9,10 +9,12 @@ on:
       - release/*
     paths:
       - docs/**
+      - .github/workflows/**
   pull_request:
     types: [issues, opened, reopened, synchronize]
     paths:
       - docs/**
+      - .github/workflows/**
   workflow_dispatch:
     inputs:
       branch:
@@ -29,7 +31,7 @@ jobs:
   documentation:
 
     permissions:
-      pull-requests: "write"
+      pull-requests: ["read", "write"]
 
     runs-on: ubuntu-latest
     name: Build and deploy documentation
@@ -72,7 +74,7 @@ jobs:
 
     - name: Comment ReadDocs Link in PR
       if: ${{ github.event_name == 'pull_request' }}
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       with:
         script: |
           const message = `
